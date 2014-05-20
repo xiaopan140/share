@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>    
+    <package name="front" namespace="/" extends="struts-default">
+        <!-- 首页注册-->
+        <action name="register" class="cn.pan.action.front.UserAction">
+            <result name="input">/register.jsp</result>
+            <result name="success" type="redirectAction">index</result>
+        </action>
+        <!-- 主页 -->
+        <action name="index" class="cn.pan.action.front.IndexAction">
+            <result name="success">/index.jsp</result>
+        </action>
+        <!-- 首页栏目 -->
+        <action name="channel" class="cn.pan.action.front.ChannelAction">
+            <result name="success">/channel/list.jsp</result>
+        </action>
+        <!-- 首页文章 -->
+        <action name="article_*" class="cn.pan.action.front.ArticleAction" method="{1}">
+            <result name="list">/article/list.jsp</result>
+            <result name="view">/article/view.jsp</result>
+        </action>
+        <!-- 首页公告 -->
+        <action name="notice_*" class="cn.pan.action.front.NoticeAction" method="{1}">
+            <result name="list">/notice/list.jsp</result>
+            <result name="view">/notice/view.jsp</result>
+        </action>
+    </package>
+</struts>    

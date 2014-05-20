@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>    
+    <package name="article" namespace="/article" extends="base">
+        <!-- 栏目 操作-->
+        <action name="*" class="cn.pan.action.article.ArticleAction" method="{1}">
+            <result name="input">/member/article/{1}.jsp</result>
+            <result name="list" type="redirectAction">
+                <param name="actionName">list</param>
+                <param name="channelId">${channelId}</param>
+                <param name="fatherId">${fatherId}</param>
+            </result> 
+            <result name="view">/member/article/{1}.jsp</result>
+            <result name="success">/member/article/list.jsp</result>
+            <result name="delattachement" type="redirectAction">update.do?id=${id}</result>
+        </action>
+    </package>
+</struts>    

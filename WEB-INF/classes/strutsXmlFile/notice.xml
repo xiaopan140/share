@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>    
+    <package name="notice" namespace="/notice" extends="base">
+        <!-- 栏目 操作-->
+        <action name="*" class="cn.pan.action.notice.NoticeAction" method="{1}">
+            <result name="input">/member/notice/{1}.jsp</result>
+            <result name="list" type="redirectAction">list</result> 
+            <result name="success">/member/notice/list.jsp</result>
+            <result name="view">/member/notice/view.jsp</result>
+        </action>
+    </package>
+</struts>    

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts> 
+    <constant name="struts.devMode" value="false"></constant>
+    <constant name="struts.action.extension" value="do,action"/>
+    <constant name="struts.i18n.encoding" value="UTF-8"></constant>
+    <!-- 定义全局视图 -->
+    <package name="base" extends="struts-default">
+        <interceptors>
+			<interceptor name="authority" class="cn.pan.util.AuthorizationInterceptor" />
+			<interceptor-stack name="pandefault">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="authority" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="pandefault"/>
+		<global-results>
+			<result name="login">/member/login.jsp</result>
+			<result name="error">/error.jsp</result>
+		</global-results>
+    </package>
+    <include file="strutsXmlFile/user.xml"/>
+    <include file="strutsXmlFile/channel.xml"/>
+    <include file="strutsXmlFile/article.xml"/>
+    <include file="strutsXmlFile/notice.xml"/>
+    <include file="strutsXmlFile/front.xml"/>
+</struts>    
